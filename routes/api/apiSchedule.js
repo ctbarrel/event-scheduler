@@ -32,4 +32,17 @@ router.post('/', function (req, res, next) {
     })
 })
 
+router.delete('/:id', function (req, res, next) {
+    const info = {
+        id: req.params.id,
+        collection: req.app.locals.collectionSchedule
+    }
+    db.deleteOne(info)
+    .then(date => {
+        res.json({msg: `deleted ${info.id}`})
+    })
+    .catch(err => {
+        console.log(err)
+    })
+})
 module.exports = router

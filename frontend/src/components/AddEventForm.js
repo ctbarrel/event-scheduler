@@ -61,7 +61,7 @@ export default class AddEventForm extends Component {
                     value={this.state.name}
                     type='text'
                     onChange={this.handleChange}
-                    placeholder='Name of Game' 
+                    placeholder='Event Name' 
                 />
                 <select name='month'
                     value={this.state.month}
@@ -88,7 +88,7 @@ export default class AddEventForm extends Component {
                     max={this.handleSelectDay()}
                 />
                 
-                <Button variant='success' type='submit'>Add List</Button>
+                <Button variant='success' type='submit'>Add Event</Button>
             </form>
         )
     }
