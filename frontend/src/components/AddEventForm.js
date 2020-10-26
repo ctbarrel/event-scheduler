@@ -31,37 +31,40 @@ export default class AddEventForm extends Component {
                 setDay = 31
         }
         if (setDay < this.state.day) {
-            this.setState({day: setDay})
+            this.setState({ day: setDay })
         }
         return setDay
     }
 
-    handleChange = ({target}) => {
-        this.setState({[target.name]: target.value})
+    handleChange = ({ target }) => {
+        this.setState({ [target.name]: target.value })
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
-        fetch(`${API_URL}schedule`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': "application/json"
-            },
-            body: JSON.stringify(this.state)
-        })
-        .then(this.props.refresh)
-        .then(this.props.hide)
+
+        if (this.state.name !== '') {
+            fetch(`${API_URL}schedule`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': "application/json"
+                },
+                body: JSON.stringify(this.state)
+            })
+                .then(this.props.refresh)
+                .then(this.props.hide)
+        }
     }
 
     render() {
         return (
             <form id='create' onSubmit={this.handleSubmit}>
 
-                <input name='name' 
+                <input name='name'
                     value={this.state.name}
                     type='text'
                     onChange={this.handleChange}
-                    placeholder='Event Name' 
+                    placeholder='Event Name'
                 />
                 <select name='month'
                     value={this.state.month}
@@ -87,7 +90,7 @@ export default class AddEventForm extends Component {
                     min='1'
                     max={this.handleSelectDay()}
                 />
-                
+
                 <Button variant='success' type='submit'>Add Event</Button>
             </form>
         )

@@ -1,3 +1,16 @@
 .App {
   text-align: center;
 }
+
+.dayCard {
+  display: inline-block;
+  width: 14%;
+  min-width: 100px;
+  min-height: 75px;
+}
+
+.calendarnumber {
+  text-align: left;
+  font-weight: bolder;
+  padding: 0 0 0 7px;
+}

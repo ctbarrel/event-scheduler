@@ -42,11 +42,11 @@ export default function AddCalEvent({ refresh, user }) {
 
       <AddEventModal
         show={modalShow}
+        user={user}
         onHide={() => {
           setModalShow(false)
           refresh()
         }}
-        user={user}
       />
     </>
   );
