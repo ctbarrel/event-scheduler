@@ -24,6 +24,10 @@ function readAll(info) {
     return info.collection.find(info.query).sort({month: 1, day: 1}).toArray()
 }
 
+function readByDay(info) {
+    return info.collection.find({day: info.day}).sort({month: 1}).toArray()
+}
+
 function createOne(info) {
     return info.collection.insertOne(info.doc)
 }
@@ -54,6 +58,7 @@ function close() {
 
 module.exports.connect = connect
 module.exports.readAll = readAll
+module.exports.readByDay = readByDay
 module.exports.createOne = createOne
 module.exports.readOne = readOne
 module.exports.replaceOne = replaceOne

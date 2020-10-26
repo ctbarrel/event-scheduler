@@ -62,9 +62,9 @@ export default class extends Component {
                     <Button name='eventView' value='list' onClick={this.handleChange}>List View</Button>
                     <Button name='eventView' value='calendar' onClick={this.handleChange}>Calendar View</Button>
                 </ButtonGroup>
-
-                {displayEventList}
                 {displayEventCalendar}
+                {displayEventList}
+
             </div>
         )
     }

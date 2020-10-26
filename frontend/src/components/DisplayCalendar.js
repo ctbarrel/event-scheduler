@@ -22,7 +22,7 @@ export default class DisplayCalendar extends Component {
             day => {
                 let dayNum = this.state.docket.indexOf(day) + 1
                 return (
-                    <DailyCard key={dayNum} dayNum={dayNum} month={this.state.month} day={this.state.calendar} />
+                    <DailyCard key={dayNum} dayNum={dayNum} month={this.state.month} />
                 )
             }
         )

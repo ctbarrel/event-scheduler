@@ -45,4 +45,19 @@ router.delete('/:id', function (req, res, next) {
         console.log(err)
     })
 })
+
+router.get('/day/:day', function (req, res, next) {
+    const info = {
+        day: req.params.day,
+        collection: req.app.locals.collectionSchedule
+    }
+    db.readByDay(info)
+    .then(daily => {
+        res.json(daily)
+    })
+    .catch(err => {
+        console.log(err)
+    })
+})
+
 module.exports = router
